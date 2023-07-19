@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .green {
+        color: green;
+
+    }
+
+    .red {
+        color: red;
+    }
+</style>
+
+<body>
+    <script>
+
+
+        function TestovaciFuknce(input) {
+            console.log(input);
+            //prevert UNI na ASCII
+            let uni = ['ě', 'š', 'č', 'ř', 'ž', 'ý', 'á', 'í', 'é','ů','ú'];
+            let ascii = ['e', 's', 'c', 'r', 'z', 'y', 'a', 'i', 'e','u', 'u'];
+            let convert = input.toLowerCase();
+            convert = convert.split('');
+            //cyklus
+            for (let i = 0; i < convert.length; i++) {
+                for (let j = 0; j < uni.length; j++) {
+                    if (convert[i] == uni[j]) {
+
+                        convert[i] = ascii[j];
+
+                    }
+                }
+            }
+
+
+            let out = "";
+            for (let i = 0; i < convert.length; i++) {
+                out += convert[i];
+            }
+
+            console.log(out);
+
+            //redex kontrola
+            let redex = /^(?=.*\d)[\da-zA-Z\s\-.,]+$/;
+            console.log(redex.test(out));
+            return redex.test(out);
+        }
+
+        function Test(vstup) {
+            let out = TestovaciFuknce(vstup);
+            if (out) {
+                document.write("<span class='green'>PASSED ✅</span>")
+            }
+            else {
+                document.write("<span class='red'>NOPE ⛔</span>")
+            }
+            document.write("<br>")
+        }
+
+        Test("Štefánikova 3018, 760 01 Zlín");
+        Test("Benešovo nábř. 3736");
+        Test("Štefánikova 2176");
+        Test("tř. Tomáše Bati 5267, 760 01 Zlín");
+        Test("Vavrečkova 44, 760 01 Zlín");
+        Test("Budova č. 315, Průmyslový areál, 760 01 Zlín");
+
+
+    </script>
+</body>
+
+</html>

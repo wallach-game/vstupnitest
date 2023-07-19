@@ -1,36 +1,42 @@
 <template>
   <div id="app">
+    <Modal></Modal>
     <Items>
     </Items>
+
+    <Kosik></Kosik>
     <!-- <img src="./assets/logo.png"> -->
     <!-- <router-view/> -->
-
+    <Form></Form>
   </div>
 </template>
 
 <script>
 import Items from "./components/Items.vue";
-import Item from "./components/Item.vue"
+import Kosik from "./components/Kosik.vue";
+import Form from "./components/Form.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
   name: 'App',
   components: {
-    "Items" : Items,
-    "Item" : Item
+    Items,
+    Kosik,
+    Form,
+    Modal
   }
 };
 </script>
 
 <style>
 #app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px; */
-
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#app>* {
+  margin-top: 1em;
 }
 </style>
